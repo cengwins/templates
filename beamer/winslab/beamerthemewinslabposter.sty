@@ -1,0 +1,86 @@
+\ProvidesPackage{beamerthemewinslabposter} 
+\RequirePackage{tikz}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1cm}
+\setlength{\TPVertModule}{1cm}
+
+\usecolortheme{winslab}
+\usefonttheme{professionalfonts}
+\useinnertheme{winslab}
+\useoutertheme{winslab}
+
+\setbeamerfont*{block title}{size=\LARGE,series=\bf}
+\setbeamerfont*{block body}{size=\large}
+\setbeamerfont*{block body alerted}{size=\large}
+\setbeamerfont*{block body example}{size=\large}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<presentation>
+%\usefonttheme{serif}
+%\setmainfont{Helvetica Neue}
+%\setbeamerfont{note page}{family*=pplx,size=\footnotesize} % Palatino for notes
+
+\institute{Wireless Systems, Networks and Cybersecurity Laboratory}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{block begin}{
+  \vskip.75ex
+  \begin{beamercolorbox}[leftskip=1cm,colsep*=.75ex]{block title}%
+    \usebeamerfont*{block title}\LARGE\insertblocktitle
+  \end{beamercolorbox}%
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{block body}%
+  \begin{beamercolorbox}[colsep*=.75ex,sep=.75ex,vmode]{block body}%
+    \large\ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+  }
+  \setbeamertemplate{block end}{
+  \end{beamercolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamertemplate{headline}{
+ \leavevmode
+  \begin{columns}
+   \begin{column}{.14\linewidth}
+    \includegraphics[width=\textwidth]{metulogo}
+   \end{column}
+   \begin{column}{.7\linewidth}
+    \vskip0.5cm
+    \centering
+    \usebeamercolor{title in headline}{\color{fg}\LARGE{\textbf{\inserttitle}}\\[0.5ex]}
+    \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
+    \usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}\\[1ex]}
+%    \vskip0.5cm
+   \end{column}
+   \begin{column}{.14\linewidth}
+    \includegraphics[width=\textwidth]{winslogo-64bit}
+   \end{column}
+   \vspace{1cm}
+  \end{columns}
+ \vspace{0.5in}
+ \hspace{0.5in}\begin{beamercolorbox}[wd=47in,colsep=0.15cm]{cboxb}\end{beamercolorbox}
+ \vspace{0.1in}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{footline}{
+  \begin{beamercolorbox}[wd=\paperwidth]{upper separation line foot}
+    \rule{0pt}{2pt}
+  \end{beamercolorbox}
+  
+  \begin{beamercolorbox}[ht=4ex,leftskip=1cm,rightskip=1cm]{footline}%
+\raisebox{-0.4cm}{    Middle East Technical University, Department of Computer Engineering, Wireless Systems, Networks and Cybersecurity Laboratory, Inonu Bulvari, 06800, Cankaya, Ankara, Turkey \texttt{http://wins.ceng.metu.edu.tr} \hspace{2cm} \hfill \insertfooter}
+    \vskip1ex
+  \end{beamercolorbox}
+
+  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line foot}
+    \rule{0pt}{2pt}
+  \end{beamercolorbox}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<all>
+
+\def\footer#1{\def\insertfooter{#1}}
+

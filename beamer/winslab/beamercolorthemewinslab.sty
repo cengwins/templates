@@ -1,0 +1,66 @@
+%\mode<presentation>
+\mode<all>
+
+\definecolor{winscolor}{RGB}{25,25,82}
+\definecolor{winscolorgray}{RGB}{220,220,220}
+
+
+\setbeamercolor{headline}{fg=winscolor,bg=white}
+\setbeamercolor{title in headline}{fg=winscolor,bg=white}
+\setbeamercolor{frame title}{fg=winscolor,bg=white}
+\setbeamercolor{frame subtitle}{fg=winscolor,bg=white}
+%\setbeamercolor{title in head/foot}{fg=winscolor,bg=white}
+\setbeamercolor{title}{fg=white,bg=winscolor}
+\setbeamercolor{author in headline}{fg=winscolor,bg=white}
+\setbeamercolor{institute in headline}{fg=winscolor,bg=white}
+\setbeamercolor{logo in headline}{fg=black,bg=lightgray}
+\setbeamercolor{separation line}{bg=white}
+
+\setbeamercolor{section in toc}{bg=white, fg=winscolor}
+\setbeamercolor{subsection in toc}{bg=white, fg=winscolor}
+
+\setbeamercolor{palette primary}{fg=white, bg=winscolor}
+\setbeamercolor{palette secondary}{fg=white, bg=winscolor}
+\setbeamercolor{palette tertiary}{fg=white, bg=winscolor}
+\setbeamercolor{palette winslab}{fg=white, bg=winscolor}
+
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamercolor{alerted text}{fg=red}
+\setbeamercolor{example text}{fg=black}
+\setbeamercolor{frametitle}{fg=winscolor}
+\setbeamercolor{framesubtitle}{fg=winscolor}
+\usebeamercolor[fg]{normal text}
+
+
+
+% body colors and fonts
+\setbeamercolor*{normal text}{fg=winscolor,bg=white}
+
+% block environment
+\setbeamercolor*{block body}{bg=winscolorgray,fg=black}
+\setbeamercolor*{block title}{fg=white,bg=winscolor}
+\setbeamerfont{block title}{size=\large,series=\bf}
+\setbeamerfont{title}{size=\Large,series=\bfseries,parent=structure}
+\setbeamerfont{subtitle}{size=\large,series=\bfseries,parent=structure}
+\setbeamerfont{author}{size=\large,parent=structure}
+\setbeamerfont{institute}{size=\small,parent=structure}
+\setbeamerfont{date}{size=\small,parent=structure}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+\setbeamercolor*{example title}{fg=white,bg=winscolor}
+\setbeamercolor{alerted text}{fg=red}
+\setbeamertemplate{itemize item}{\scriptsize\raise1.25pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
+\setbeamertemplate{itemize subitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
+\setbeamertemplate{itemize subsubitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
+\setbeamertemplate{enumerate item}{\insertenumlabel.}
+\setbeamertemplate{enumerate subitem}{\insertenumlabel.\insertsubenumlabel}
+\setbeamertemplate{enumerate subsubitem}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel}
+\setbeamertemplate{enumerate mini template}{\insertenumlabel}
+\setbeamertemplate{navigation symbols}{}  % no navigation on a poster
+
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\setbeamercolor*{bibliography entry title}{fg=black}
+\setbeamercolor*{bibliography entry author}{fg=black}
+\setbeamercolor*{bibliography entry location}{fg=black}
+\setbeamercolor*{bibliography entry note}{fg=black}
+%\mode<all>

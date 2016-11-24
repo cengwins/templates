@@ -1,0 +1,127 @@
+\mode<presentation>
+
+
+\defbeamertemplate*{footline}{winslab}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\beamer@ifempty\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\defbeamertemplate*{headline}{winslab}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.65ex,dp=-2ex,center]{logo in head/foot}%
+       \vspace*{-1.2ex}\includegraphics[height=3.8ex]{winslogo-64bit}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.51\paperwidth,ht=2.65ex,dp=1.5ex,right]{section in head/foot}%
+       \usebeamerfont{section in head/foot}\insertsectionhead\hspace*{2ex}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.41\paperwidth,ht=2.65ex,dp=1.5ex,left]{subsection in head/foot}%
+   	   \usebeamerfont{subsection in head/foot}\hspace*{2ex}\insertsubsectionhead
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+
+\setbeamersize{text margin left=1em,text margin right=1em}
+
+
+
+\defbeamertemplate*{note page}{winslab}
+{%
+  {%
+    \scriptsize
+    \insertvrule{.25\paperheight}{white!90!black}
+    \vskip-.25\paperheight
+    \nointerlineskip
+    \vbox{
+      \hfill\insertslideintonotes{0.25}\hskip-\Gm@rmargin\hskip0pt%
+      \vskip-0.25\paperheight%
+      \nointerlineskip
+      \begin{pgfpicture}{0cm}{0cm}{0cm}{0cm}
+        \begin{pgflowlevelscope}{\pgftransformrotate{90}}
+          {\pgftransformshift{\pgfpoint{-2cm}{0.2cm}}%
+          \pgftext[base,left]{\footnotesize\the\year-\ifnum\month<10\relax0\fi\the\month-\ifnum\day<10\relax0\fi\the\day}}
+        \end{pgflowlevelscope}
+      \end{pgfpicture}}
+    \nointerlineskip
+    \vbox to .25\paperheight{\vskip0.5em
+      \hbox{\insertshorttitle[width=8cm]}%
+      \setbox\beamer@tempbox=\hbox{\insertsection}%
+      \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip4pt\raise3pt\hbox{\vrule
+            width0.4pt height7pt\vrule width 9pt
+            height0.4pt}}\hskip1pt\hbox{\begin{minipage}[t]{7.5cm}\def\breakhere{}\insertsection\end{minipage}}\fi%
+      }%
+      \setbox\beamer@tempbox=\hbox{\insertsubsection}%
+      \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip17.4pt\raise3pt\hbox{\vrule
+            width0.4pt height7pt\vrule width 9pt
+            height0.4pt}}\hskip1pt\hbox{\begin{minipage}[t]{7.5cm}\def\breakhere{}\insertsubsection\end{minipage}}\fi%
+      }%
+      \setbox\beamer@tempbox=\hbox{\insertshortframetitle}%
+      \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip30.8pt\raise3pt\hbox{\vrule
+            width0.4pt height7pt\vrule width 9pt
+            height0.4pt}}\hskip1pt\hbox{\insertshortframetitle[width=7cm]}\fi%
+      }%
+      \vfil}%
+  }%
+  \vskip.25em
+  \nointerlineskip
+  \setlength\itemsep{0em}
+  \tiny\insertnote
+}
+
+\define@key{beamerframe}{finalcontactslide}[true]{%
+  \beamer@plainframetrue%
+  \def\beamer@frametemplate{\beamer@frametemplate@plain}
+}
+\setbeamertemplate{endpage}{%
+    \begin{frame}{\textbf{Questions}}
+    
+\begin{columns}
+\begin{column}{0.7\textwidth}
+    \begin{center}
+    THANK YOU\par\vskip2em%
+   \begin{beamercolorbox}[sep=0.3cm,center]{author}
+      \usebeamerfont{date}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.2em%
+        {\usebeamerfont{date}{\insertsubtitle\par}}%
+      \fi%     
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[sep=0.3cm,center]{author}
+      \usebeamerfont{date}presented by \insertauthor
+    \end{beamercolorbox}
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+
+    \begin{beamercolorbox}[sep=0.3cm,center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+     \end{center}
+\end{column}
+\begin{column}{0.3\textwidth}
+  \centering
+\tikz\node[%
+    draw=white,
+    fill=white,
+    line width=1mm,
+    font=\fontfamily{ppl}\fontsize{5cm}{6cm}\selectfont]{?};
+\end{column}
+\end{columns} 
+    \end{frame}
+}
+
+\mode
+<all>

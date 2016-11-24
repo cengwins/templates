@@ -1,0 +1,99 @@
+\mode<presentation>
+
+\titlegraphic{\includegraphics[height=3.8ex]{winslogo-64bit}}
+
+%
+\defbeamertemplate*{title page}{winslab}[1][]
+{
+  \vbox{}
+  \vfill
+  \begingroup
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center,#1,shadow=true,rounded=true]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=8pt,center,#1]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+     {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    \begin{beamercolorbox}[sep=8pt,center,#1]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center,#1]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+   	
+  \endgroup
+  \vfill
+}
+
+
+% Part page: default
+
+\defbeamertemplate*{part page}{winslab}[1][]
+{
+  \begingroup
+    \centering
+    {\usebeamerfont{part name}\usebeamercolor[fg]{part name}\partname~\insertromanpartnumber}
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=16pt,center,#1]{part title}
+      \usebeamerfont{part title}\insertpart\par
+    \end{beamercolorbox}
+  \endgroup
+}
+
+
+% Section page: default
+
+\defbeamertemplate*{section page}{winslab}[1][]
+{
+  \begingroup
+    \centering
+    {\usebeamerfont{section name}\usebeamercolor[fg]{section name}\sectionname~\insertsectionnumber}
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=12pt,center,#1]{part title}
+      \usebeamerfont{section title}\insertsection\par
+    \end{beamercolorbox}
+  \endgroup
+}
+
+% Subection page: default
+
+\defbeamertemplate*{subsection page}{winslab}[1][]
+{
+  \begingroup
+    \centering
+    {\usebeamerfont{subsection name}\usebeamercolor[fg]{subsection name}\subsectionname~\insertsubsectionnumber}
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=8pt,center,#1]{part title}
+      \usebeamerfont{subsection title}\insertsubsection\par
+    \end{beamercolorbox}
+  \endgroup
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{block begin}{
+  \vskip.75ex
+  \begin{beamercolorbox}[leftskip=1cm,colsep*=.75ex,shadow=true,rounded=true]{block title}%
+    \usebeamerfont*{block title}\insertblocktitle
+  \end{beamercolorbox}%
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{block body}%
+  \begin{beamercolorbox}[colsep*=.75ex,sep=.75ex,vmode,]{block body}%
+    \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+  }
+  \setbeamertemplate{block end}{
+  \end{beamercolorbox}
+}
+
+
+
+\mode
+<all>
