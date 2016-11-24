@@ -1,0 +1,18 @@
+These are the beamer templates for the WINS lab. There are two templates one for presentation and the other for posters.
+
+Where to locate the templates?
+
+Goto your local /texmf/tex/latex directory. You can find them at the following positions:
+Windows XP C:\Documents and Settings\<user name>\texmf\tex\latex\local\
+Windows Vista/7 C:\Users\<user name>\texmf\tex\latex\local\
+Linux ~/texmf/tex/latex/local/
+Mac OS X /Users/<user name>/Library/texmf/tex/latex/local/
+
+Then run git clone https://github.com/cengwins/templates.git in that folder. Notive that, the examples will also be checked out in the "examples" directory. You can copy the examples in your local folder. You do not have to deal with logos of the lab or universtiy.
+
+
+
+
+
+
+
