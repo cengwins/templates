@@ -14,6 +14,19 @@
 \usefonttheme{professionalfonts}
 
 
+\newcommand{\eonlect}[1]{
+{
+\setbeamertemplate{footline}{}
+\begin{frame}
+\frametitle{}
+\framesubtitle{{#1}}
+\sectionpage
+\note{}
+\end{frame}
+\addtocounter{framenumber}{-1}}
+}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \mode<all>
 
