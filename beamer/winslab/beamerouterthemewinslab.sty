@@ -86,42 +86,8 @@
   \beamer@plainframetrue%
   \def\beamer@frametemplate{\beamer@frametemplate@plain}
 }
-\setbeamertemplate{endpage}{%
-    \begin{frame}{\textbf{Questions}}
-    
-\begin{columns}
-\begin{column}{0.7\textwidth}
-    \begin{center}
-    THANK YOU\par\vskip2em%
-   \begin{beamercolorbox}[sep=0.3cm,center]{author}
-      \usebeamerfont{date}\inserttitle\par%
-      \ifx\insertsubtitle\@empty%
-      \else%
-        \vskip0.2em%
-        {\usebeamerfont{date}{\insertsubtitle\par}}%
-      \fi%     
-    \end{beamercolorbox}%
-    \begin{beamercolorbox}[sep=0.3cm,center]{author}
-      \usebeamerfont{date}presented by \insertauthor
-    \end{beamercolorbox}
-    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
 
-    \begin{beamercolorbox}[sep=0.3cm,center]{date}
-      \usebeamerfont{date}\insertdate
-    \end{beamercolorbox}\vskip0.5em
-     \end{center}
-\end{column}
-\begin{column}{0.3\textwidth}
-  \centering
-\tikz\node[%
-    draw=white,
-    fill=white,
-    line width=1mm,
-    font=\fontfamily{ppl}\fontsize{5cm}{6cm}\selectfont]{?};
-\end{column}
-\end{columns} 
-    \end{frame}
-}
+
 
 \mode
 <all>
