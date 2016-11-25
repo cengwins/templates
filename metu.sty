@@ -1,0 +1,169 @@
+% metu.sty
+\ProvidesClass{metu}[2016/09/01 version 1.0]
+\NeedsTeXFormat{LaTeX2e}
+
+% --- Class structure: declaration of options part
+% ---
+% This class extends the article class
+% Read all the documentclass options; pass them to article, unless the file
+% named "<currentoption>.min" exists, in which case it is loaded
+%\DeclareOption*{\InputIfFileExists{\CurrentOption.min}{}{%
+%    \PassOptionsToClass{\CurrentOption}{article}}
+%\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\DeclareOption*{\InputIfFileExists{\CurrentOption.min}{}{%
+    \PassOptionsToClass{\CurrentOption}{article}}}
+
+% --- Class structure: execution of options part
+% ---
+\ProcessOptions \relax
+
+% --- Class structure: declaration of options part
+% ---
+%\LoadClass{article}
+
+% --- Class structure: main code part
+% ---
+
+% what is the email
+\def\@email{}
+\newcommand{\setemail}[1]{\def\@email{#1}}
+\newcommand{\show@email}{\@email}
+\newcommand*{\printemail}{\expandafter{\@email}}
+
+% what is the web
+\def\@web{}
+\newcommand{\setweb}[1]{\def\@web{#1}}
+\newcommand{\show@web}{\@web}
+\newcommand*{\printweb}{\expandafter{\@web}}
+
+
+% what is the tel
+\def\@tel{}
+\newcommand{\settel}[1]{\def\@tel{#1}}
+\newcommand{\show@tel}{\@tel}
+\newcommand*{\printtel}{\expandafter{\@tel}}
+
+% what is the fax
+\def\@web{}
+\newcommand{\setfax}[1]{\def\@fax{#1}}
+\newcommand{\show@fax}{\@fax}
+\newcommand*{\printfax}{\expandafter{\@fax}}
+
+
+
+% what is the course
+\def\@coursecode{}
+\newcommand{\setcoursecode}[1]{\def\@coursecode{#1}}
+\newcommand{\show@coursecode}{\@coursecode}
+
+% what is the coursename
+\def\@coursename{}
+\newcommand{\setcoursename}[1]{\def\@coursename{#1}}
+\newcommand{\show@coursename}{\@coursename}
+
+% what is the courseterm
+\def\@courseterm{}
+\newcommand{\setcourseterm}[1]{\def\@courseterm{#1}}
+\newcommand{\show@courseterm}{\@courseterm}
+
+% what is the examdate
+\def\@examdate{}
+\newcommand{\setexamdate}[1]{\def\@examdate{#1}}
+\newcommand{\show@examdate}{\@examdate}
+
+% what is the examinationtype
+\def\@examinationtype{}
+\newcommand{\setexaminationtype}[1]{\def\@examinationtype{#1}}
+\newcommand{\show@examinationtype}{\@examinationtype}
+
+% what is the lecturer
+\def\@examinationtype{}
+\newcommand{\setlecturer}[1]{\def\@lecturer{#1}}
+\newcommand{\show@lecturer}{\@lecturer}
+
+\newenvironment{announcements}{%
+\begin{businesslist}{Announcements}
+}{%
+\end{businesslist}
+}
+
+%\RequirePackage[]{fontspec}
+%\setromanfont{Times New Roman}
+%\setsansfont{Arial}
+%\setmonofont[Color={0019D4}]{Courier New}
+
+\RequirePackage{libertine}
+\RequirePackage{libertinust1math}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+
+
+\RequirePackage[]{xcolor}
+
+\definecolor{metured}{rgb}{.886,0.093,0.215}
+\definecolor{metublack}{rgb}{0.078,0.0625,0.0234}
+\definecolor{metugray}{rgb}{0.44140625,0.4375,0.44921875}
+\definecolor{myviolet}{HTML}{4c0068}
+
+\RequirePackage{tikz}\usetikzlibrary{calc}
+\RequirePackage[ a4paper, total={210mm,297mm},left=3cm,right=2cm,top=1cm,bottom=7cm]{geometry}
+
+\RequirePackage{lastpage}
+ 
+\RequirePackage{fancyhdr}
+\fancypagestyle{firstpage}{%
+  \fancyhf{} % clear all six fields
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength\headheight{5cm}
+
+\rhead{%
+\scriptsize
+  \begin{tikzpicture}[remember picture,overlay,every node/.style={anchor=west}]
+  \node at (-10,3) { \includegraphics[width=0.5\paperwidth]{refmetu.png}};
+  \node at (-16.1,.5) { };
+  \node at (-7.4,2-0.3) {\textcolor{metublack}{\MakeUppercase{\show@coursecode} \vspace{1cm} \MakeUppercase{\show@courseterm}}};
+  \node at (-7.4,1.7-0.3) {\textcolor{metublack}{\MakeUppercase{\show@coursename}}};
+  \node at (-7.4,1.4-0.3) {\textcolor{metured}{\MakeUppercase{\show@examinationtype}}};
+  \node at (-7.4,1.1-0.3) {\textcolor{metured}{\MakeUppercase{\show@examdate}}};
+  \node at (-7.4,0.8-0.3) {};
+  \node at (-7.4,0.5-0.3) {\textcolor{metublack}{\MakeUppercase{\show@lecturer}}};
+ \end{tikzpicture}
+}
+
+
+\rfoot{\scriptsize \thepage/\pageref{LastPage}}
+\lhead{%
+\scriptsize
+\textcolor{metublack}{MÜHENDİSLİK FAKÜLTESİ}\\
+\textcolor{metublack}{FACULTY OF ENGINEERING}\\
+\textcolor{metured}{BİLGİSAYAR MÜHENDİSLİĞİ BÖLÜMÜ}\\
+\textcolor{metured}{DEPARTMENT OF COMPUTER ENGINEERING}\\
+\vspace{0.2cm}
+\textcolor{metugray}{DUMLUPINAR BULVARI 06800}\\
+\textcolor{metugray}{ÇANKAYA ANKARA/TURKEY}\\
+\textcolor{metugray}{T: \show@tel}\\
+\textcolor{metugray}{F: \show@fax}\\
+\textcolor{metugray}{\show@email}\\
+\textcolor{metugray}{\show@web}\\
+\includegraphics[width=0.05\paperwidth]{winslogo.png}\textcolor{metugray}{http://wins.ceng.metu.edu.tr}
+}  
+}
+\fancypagestyle{followingpage}{%
+  \fancyhf{} % clear all six fields
+  \fancyhead[RE,LO]{\show@committee, \show@date}
+  \fancyhead[LE,RO]{page \thepage}
+  \renewcommand{\headrulewidth}{1pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+
+
+
+
+\pagestyle{firstpage}
+\AtBeginDocument{\thispagestyle{firstpage}}

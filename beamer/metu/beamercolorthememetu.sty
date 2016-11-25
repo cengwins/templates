@@ -1,0 +1,52 @@
+\mode<presentation>
+\definecolor{metured}{rgb}{.886,0.093,0.215}
+\definecolor{red}{rgb}{.886,0.093,0.215}
+\definecolor{metublack}{rgb}{0.078,0.0625,0.0234}
+\definecolor{metugray}{rgb}{0.44140625,0.4375,0.44921875}
+
+% Settings
+\setbeamercolor*{title page header}{fg=white,bg=metured}
+\setbeamercolor*{author}{fg=white,bg=metured}
+\setbeamercolor*{date}{fg=white,bg=metured}
+\setbeamercolor*{palette primary}{use=structure,fg=white,bg=metured}
+\setbeamercolor{headline}{fg=white,bg=metured}
+\setbeamercolor{section title}{fg=metured,bg=white}
+\setbeamercolor{footline}{fg=white,bg=metured}
+%\setbeamercolor{block title}{use=structure,fg=white,bg=metugray}
+%\setbeamercolor{block body}{use=structure,fg=metublack,bg=white}
+%\setbeamercolor{itemize item}{fg=metublack} % all frames will have red bullets
+%\setbeamercolor{enumerate item}{fg=metublack} % all frames will have red bullets
+\setbeamercolor{alerted text}{fg=metured}
+\setbeamercolor{bibliography item}{parent=palette primary}
+\setbeamercolor*{bibliography entry title}{parent=palette primary}
+\setbeamercolor*{frametitle continuation}{fg=white}
+\setbeamercolor*{bibliography entry title}{fg=metured}
+\setbeamercolor{bibliography entry author}{fg=metublack}
+\setbeamercolor*{bibliography entry location}{fg=metublack}
+\setbeamercolor*{bibliography entry note}{fg=metublack}
+\setbeamertemplate{items}[circle]
+\setbeamertemplate{subitems}[circle]
+\setbeamertemplate{subsubitems}[circle]
+\setbeamercolor*{itemize item}{fg=metugray}
+\setbeamercolor*{itemize subitem}{fg=metugray}
+\setbeamercolor*{itemize subsubitem}{fg=metugray}
+\setbeamertemplate{enumerate items}[default]
+\setbeamercolor*{enumerate item}{fg=metugray}
+\setbeamercolor*{enumerate subitem}{fg=metugray}
+\setbeamercolor*{enumerate subsubitem}{fg=metugray}
+
+\setbeamercolor{block title}{fg=metured,bg=metugray!10}
+\setbeamercolor{block body}{fg=black,bg=metugray!10}
+\setbeamercolor{block title alerted}{fg=white,bg=metured}
+\setbeamercolor{block title example}{fg=black,bg=metured!10}
+\setbeamercolor{block body example}{fg=black,bg=metured!5}
+%\setbeamerfont{block title}{series=\bfseries}
+
+\newcommand{\bigqed}{\tikz[baseline]\draw[thick,metublack](0,0)rectangle(0.175,0.175);}
+\setbeamertemplate{qed symbol}{\bigqed}
+\setbeamercovered{transparent}
+\setbeamertemplate{theorems}[numbered]
+
+
+\mode
+<all>

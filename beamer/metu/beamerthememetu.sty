@@ -1,0 +1,72 @@
+\mode<presentation>
+
+% Requirement
+\RequirePackage{tikz}
+% Settings
+\useinnertheme{metu}
+\useoutertheme{metu}
+\usecolortheme{metu}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=true]  
+\setbeamerfont{caption}{size=\scriptsize}
+
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.666667\paperwidth,ht=3ex,dp=1ex,left]{author in head/foot}%
+    \hspace*{2ex}\usebeamerfont{author in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=3ex,dp=1ex,right]{author in head/foot}%
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+
+\usepackage[sc]{mathpazo}
+\linespread{1.05}         % Palladio needs more leading (space between lines)
+\usepackage[T1]{fontenc}
+
+\newcommand{\eonlect}[1]{
+{
+\setbeamertemplate{footline}{}
+\begin{frame}
+\frametitle{}
+\framesubtitle{{#1}}
+%\begin{tikzpicture}
+%	\node[text width=8cm,text=metublack] at (-4,4) {\Large{#1}};
+%    \draw [metured!50!metugray, rotate=90]
+%    [l-system={Fractal plant, axiom=X, order=6, step=2pt, angle=25}]
+%    lindenmayer system; 
+%\end{tikzpicture}
+\begin{columns}[onlytextwidth]
+    \begin{column}{0.7\textwidth}
+      \centering
+		\includegraphics[scale=0.1]{figures/illusion.png}
+	\end{column}
+    \begin{column}{0.3\textwidth}		
+		\textcolor{metugray}{\Large{#1}}
+	\end{column}	
+\end{columns}	
+\note{
+
+}
+\end{frame}
+\addtocounter{framenumber}{-1}
+}
+}
+
+
+\setbeamertemplate{bibliography item}{%
+  \ifboolexpr{ test {\ifentrytype{book}} or test {\ifentrytype{mvbook}}
+    or test {\ifentrytype{collection}} or test {\ifentrytype{mvcollection}}
+    or test {\ifentrytype{reference}} or test {\ifentrytype{mvreference}} }
+    {\setbeamertemplate{bibliography item}[book]}
+    {\ifentrytype{online}
+       {\setbeamertemplate{bibliography item}[online]}
+       {\setbeamertemplate{bibliography item}[article]}}%
+  \usebeamertemplate{bibliography item}}
+
+
+\mode<all>

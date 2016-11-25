@@ -1,0 +1,66 @@
+\mode<presentation>
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+  \fill[color=metured] (0,0) rectangle (\the\paperwidth,\the\paperheight);
+  
+  %\fill[color=orange] (0,0) rectangle(2.95,1.9);
+  %\fill[color=blue!50!cyan!80] (3.05,0) rectangle(\the\paperwidth,1.9);
+  \ifnum\thepage>1\relax%
+   \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+   \fi
+  \end{tikzpicture}
+}
+
+% Title page
+\defbeamertemplate*{title page}{metu}[1][]
+{ 
+\vspace{-1.5cm}
+    	\begin{flushright}
+      \includegraphics[width=9cm]{metu.png}\par%
+	\end{flushright}
+     \vskip1cm%
+    \begin{beamercolorbox}[wd=10cm,ht=5ex,leftskip=5cm,#1]{title page header}
+      \usebeamerfont{title}\inserttitle\par%
+    \end{beamercolorbox}%
+     \vskip1cm%
+    \begin{beamercolorbox}[wd=10cm,leftskip=5cm,#1]{author}
+      \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}
+     \vskip1cm%
+    \begin{beamercolorbox}[wd=10cm,leftskip=5cm,#1]{date}
+      \usebeamerfont{author}\insertdate%
+    \end{beamercolorbox}
+  \vfill
+}
+
+
+\defbeamertemplate*{section page}{metu}[1][]
+{
+  
+\vspace{3cm}
+    \begin{beamercolorbox}[wd=10cm,leftskip=5cm,#1]{section title}
+      \usebeamerfont{section title}\insertsection\par%
+    \end{beamercolorbox}
+     \vskip1cm%
+  \vfill
+}
+
+
+\setbeamertemplate{block begin}{
+  \vskip.75ex
+  \begin{beamercolorbox}[shadow=false,leftskip=1cm,colsep*=.75ex]{block title}%
+    \usebeamerfont*{block title}\insertblocktitle
+  \end{beamercolorbox}%
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{block body}%
+  \begin{beamercolorbox}[shadow=false,colsep*=.75ex,sep=.75ex,vmode]{block body}%
+    \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+  }
+  \setbeamertemplate{block end}{
+  \end{beamercolorbox}
+}
+
+\mode
+<all>
