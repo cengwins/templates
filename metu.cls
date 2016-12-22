@@ -87,10 +87,16 @@
 \end{businesslist}
 }
 
-\RequirePackage[]{fontspec}
-\setromanfont{Times New Roman}
-\setsansfont{Arial}
-\setmonofont[Color={0019D4}]{Courier New}
+%\RequirePackage[]{fontspec}
+%\setromanfont{Times New Roman}
+%\setsansfont{Arial}
+%\setmonofont[Color={0019D4}]{Courier New}
+
+
+\RequirePackage{libertine}
+\RequirePackage{libertinust1math}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
 
 \RequirePackage[]{xcolor}
 
@@ -146,5 +152,5 @@
 
 
 %
-%\pagestyle{metuheaderstyle}
+\pagestyle{metuheaderstyle}
 %\AtBeginDocument{\thispagestyle{metuheaderstyle}}
