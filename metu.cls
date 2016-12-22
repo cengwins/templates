@@ -122,7 +122,7 @@
 \fancyhead[RO,RE]{
 \scriptsize
   \begin{tikzpicture}[remember picture,overlay,every node/.style={anchor=west}]
-  \node at (-10,3) { \includegraphics[width=0.5\paperwidth]{refmetu.png}};
+  \node at (-9,3) { \includegraphics[width=0.5\paperwidth]{refmetu.png}};
   \node at (-7.4,2-0.3) {\textcolor{metublack}{\MakeUppercase{\show@coursecode} \vspace{1cm} \MakeUppercase{\show@courseterm}}};
   \node at (-7.4,1.7-0.3) {\textcolor{metublack}{\MakeUppercase{\show@coursename}}};
   \node at (-7.4,1.4-0.3) {\textcolor{metured}{\MakeUppercase{\show@examinationtype}}};
@@ -133,7 +133,7 @@
 }
 \fancyfoot[RO,RE]{\scriptsize \thepage/\pageref{LastPage}}
 
-\fancyhead[LO,LE]{%
+\fancyhead[LO,LE]{
 \scriptsize
 \textcolor{metublack}{MÜHENDİSLİK FAKÜLTESİ}\\
 \textcolor{metublack}{FACULTY OF ENGINEERING}\\
@@ -145,10 +145,10 @@
 \textcolor{metugray}{T: \show@tel}\\
 \textcolor{metugray}{F: \show@fax}\\
 \textcolor{metugray}{\show@email}\\
-\textcolor{metugray}{\show@web}
+\textcolor{metugray}{\show@web}\\
+\includegraphics[width=0.05\paperwidth]{winslogo.png}\textcolor{metugray}{http://wins.ceng.metu.edu.tr}
 }  
 }
-
 
 
 %
