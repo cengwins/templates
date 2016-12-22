@@ -110,18 +110,16 @@
 
 \RequirePackage{lastpage}
  
-\RequirePackage{fancyhdr}
-\fancypagestyle{firstpage}{%
-  \fancyhf{} % clear all six fields
+
+\@ifpackageloaded{fancyhdr}{ }{\RequirePackage{fancyhdr}}
+
+\fancypagestyle{metuheaderstyle}{%
+  %\fancyhf{} % clear all six fields
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0pt}
+  \setlength\headheight{5cm}
 
-
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-\setlength\headheight{5cm}
-
-\rhead{%
+\fancyhead[RO,RE]{%
 \scriptsize
   \begin{tikzpicture}[remember picture,overlay,every node/.style={anchor=west}]
   \node at (-10,3) { \includegraphics[width=0.5\paperwidth]{refmetu.png}};
@@ -135,9 +133,12 @@
  \end{tikzpicture}
 }
 
+\fancyfoot[RO,RE]{
+\scriptsize \thepage/\pageref{LastPage}
+}
 
-\rfoot{\scriptsize \thepage/\pageref{LastPage}}
-\lhead{%
+
+\fancyhead[LO,LE]{
 \scriptsize
 \textcolor{metublack}{MÜHENDİSLİK FAKÜLTESİ}\\
 \textcolor{metublack}{FACULTY OF ENGINEERING}\\
@@ -153,17 +154,10 @@
 \includegraphics[width=0.05\paperwidth]{winslogo.png}\textcolor{metugray}{http://wins.ceng.metu.edu.tr}
 }  
 }
-\fancypagestyle{followingpage}{%
-  \fancyhf{} % clear all six fields
-  \fancyhead[RE,LO]{\show@committee, \show@date}
-  \fancyhead[LE,RO]{page \thepage}
-  \renewcommand{\headrulewidth}{1pt}
-  \renewcommand{\footrulewidth}{0pt}
-}
 
 
 
 
-
-\pagestyle{firstpage}
-\AtBeginDocument{\thispagestyle{firstpage}}
+%
+%\pagestyle{metuheaderstyle}
+\AtBeginDocument{\thispagestyle{metuheaderstyle}}

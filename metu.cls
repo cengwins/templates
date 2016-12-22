@@ -1,5 +1,5 @@
 % metu.sty
-\ProvidesClass{metu}[2005/09/01 version 1.00 Minutes of meetings]
+\ProvidesClass{metu}[2016/09/01 version 1.0]
 \NeedsTeXFormat{LaTeX2e}
 
 % --- Class structure: declaration of options part
@@ -104,18 +104,16 @@
 
 \RequirePackage{lastpage}
  
-\RequirePackage{fancyhdr}
-\fancypagestyle{firstpage}{%
-  \fancyhf{} % clear all six fields
+\@ifpackageloaded{fancyhdr}{ }{\RequirePackage{fancyhdr}}
+
+\fancypagestyle{metuheaderstyle}{%
+  %\fancyhf{} % clear all six fields
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0pt}
+  \setlength\headheight{5cm}
 
 
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-\setlength\headheight{5cm}
-
-\rhead{%
+\fancyhead[RO,RE]{
 \scriptsize
   \begin{tikzpicture}[remember picture,overlay,every node/.style={anchor=west}]
   \node at (-10,3) { \includegraphics[width=0.5\paperwidth]{refmetu.png}};
@@ -127,8 +125,9 @@
   \node at (-7.4,0.5-0.3) {\textcolor{metublack}{\MakeUppercase{\show@lecturer}}};
  \end{tikzpicture}
 }
-\rfoot{\scriptsize \thepage/\pageref{LastPage}}
-\lhead{%
+\fancyfoot[RO,RE]{\scriptsize \thepage/\pageref{LastPage}}
+
+\fancyhead[LO,LE]{%
 \scriptsize
 \textcolor{metublack}{MÜHENDİSLİK FAKÜLTESİ}\\
 \textcolor{metublack}{FACULTY OF ENGINEERING}\\
@@ -143,17 +142,9 @@
 \textcolor{metugray}{\show@web}
 }  
 }
-\fancypagestyle{followingpage}{%
-  \fancyhf{} % clear all six fields
-  \fancyhead[RE,LO]{\show@committee, \show@date}
-  \fancyhead[LE,RO]{page \thepage}
-  \renewcommand{\headrulewidth}{1pt}
-  \renewcommand{\footrulewidth}{0pt}
-}
 
 
 
-
-
-\pagestyle{firstpage}
-\AtBeginDocument{\thispagestyle{firstpage}}
+%
+%\pagestyle{metuheaderstyle}
+%\AtBeginDocument{\thispagestyle{metuheaderstyle}}
