@@ -132,6 +132,7 @@
  \end{tikzpicture}
 }
 \fancyfoot[RO,RE]{\scriptsize \thepage/\pageref{LastPage}}
+\fancyfoot[CO,CE]{}
 
 \fancyhead[LO,LE]{
 \scriptsize
