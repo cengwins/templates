@@ -154,4 +154,4 @@
 
 %
 \pagestyle{metuheaderstyle}
-%\AtBeginDocument{\thispagestyle{metuheaderstyle}}
+\AtBeginDocument{\thispagestyle{metuheaderstyle}}
