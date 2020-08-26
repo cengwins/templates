@@ -1,6 +1,7 @@
 \ProvidesPackage{beamerthemewinslab} 
 \RequirePackage{tikz}
 \RequirePackage{textpos}
+\RequirePackage{lastpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -13,8 +14,33 @@
 \usecolortheme{winslab}
 \usefonttheme{professionalfonts}
 
-
 \newcommand{\eonlect}[1]{
+{
+\setbeamertemplate{footline}{}
+\begin{frame}
+\frametitle{}
+\framesubtitle{{#1}}
+\partpage
+\note{}
+\end{frame}
+\addtocounter{framenumber}{-1}}
+}
+
+
+\newcommand{\eonlectpart}[1]{
+{
+\setbeamertemplate{footline}{}
+\begin{frame}
+\frametitle{}
+\framesubtitle{{#1}}
+\partpage
+\note{}
+\end{frame}
+\addtocounter{framenumber}{-1}}
+}
+
+
+\newcommand{\eonlectsection}[1]{
 {
 \setbeamertemplate{footline}{}
 \begin{frame}
@@ -26,6 +52,22 @@
 \addtocounter{framenumber}{-1}}
 }
 
+
+\AtBeginPart{%
+\begin{frame}
+\frametitle{}
+%\tikz\node[draw=white,fill=gray,line width=1mm,font=\fontfamily{ppl}\fontsize{0.5cm}{0.7cm}\selectfont{Lecture~\thepart:~\beamer@partname};
+\vskip0.5cm
+    \centering
+    \usebeamercolor{title in headline}{\color{fg}\large{\textbf{Lecture~\thepart:~\beamer@partname}}\\[0.5ex]}
+    
+\end{frame}
+}
+
+
+\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0em}{}{}
+\AtBeginSection[]{%
+  \begin{frame}\frametitle{Agenda}\begin{minipage}{\textwidth}\tableofcontents[currentsection,hideallsubsections]\end{minipage}\end{frame}}
 
 
 \newcommand{\thankslide}[1]{

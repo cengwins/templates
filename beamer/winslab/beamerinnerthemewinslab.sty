@@ -43,7 +43,7 @@
     {\usebeamerfont{part name}\usebeamercolor[fg]{part name}\partname~\insertromanpartnumber}
     \vskip1em\par
     \begin{beamercolorbox}[sep=16pt,center,#1]{part title}
-      \usebeamerfont{part title}\insertpart\par
+      \usebeamerfont{part title}\insertpart \insertsection \par
     \end{beamercolorbox}
   \endgroup
 }
@@ -55,10 +55,10 @@
 {
   \begingroup
     \centering
-    {\usebeamerfont{section name}\usebeamercolor[fg]{section name}\sectionname~\insertsectionnumber}
+    {\usebeamerfont{section name}\usebeamercolor[fg]{section name}\sectionname~\insertromanpartnumber.\insertsectionnumber}
     \vskip1em\par
     \begin{beamercolorbox}[sep=12pt,center,#1]{sectionpage title}
-      \usebeamerfont{sectionpage title}\insertsection\par
+     \usebeamerfont{sectionpage title} \insertsection\par
     \end{beamercolorbox}
   \endgroup
 }
