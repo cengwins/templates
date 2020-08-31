@@ -23,69 +23,93 @@
   \leavevmode%
   \hbox{%
   \begin{beamercolorbox}[wd=.08\paperwidth,ht=2.65ex,dp=-2ex,center]{logo in head/foot}%
-       \vspace*{-1.2ex}\includegraphics[height=3.7ex]{winslogo-64bit}
+       \vspace*{-1.2ex}\includegraphics[height=3.6ex]{winslogo-64bit}
   \end{beamercolorbox}%
   \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.65ex,dp=1.5ex,right]{section in head/foot}%
        \usebeamerfont{section in head/foot}\insertsectionhead\hspace*{2ex}
   \end{beamercolorbox}%
   \begin{beamercolorbox}[wd=.42\paperwidth,ht=2.65ex,dp=1.5ex,left]{subsection in head/foot}%
-   	   \usebeamerfont{subsection in head/foot}\hspace*{2ex}\insertsubsectionhead
+   	   \usebeamerfont{subsection in head/foot}\hspace*{2ex}\ifx\insertsubsection\empty\else$\bullet$\hspace*{2ex}\insertsubsectionhead\fi\strut\par%
   \end{beamercolorbox}}%
   \vskip0pt%
 }
 
 
-%\setbeamersize{text margin left=1.5em,text margin right=1em}
+\setbeamersize{text margin left=1.5em,text margin right=1em}
+%
+%
+%\defbeamertemplate*{note page}{winslab}
+%{%
+% 
+%    \vbox{
+%    \vskip-0.1\paperheight%
+%      \insertslideintonotes{0.8}\hskip-\Gm@rmargin\hskip0pt%
+%      \vskip-0.25\paperheight%
+%      \nointerlineskip}
+%      \vskip5em
+%   \hbox{\insertshorttitle[width=8cm]}%
+%   \hbox{\insertsection[width=8cm]}% \insertsection  \insertsubsection  \insertshortframetitle 
+%  \insertnote
+%}
 
 
 
-\defbeamertemplate*{note page}{winslab}
-{%
-  {%
-    \scriptsize
-    \insertvrule{.25\paperheight}{white!90!black}
-    \vskip-.25\paperheight
-    \nointerlineskip
-    \vbox{
-      \hfill\insertslideintonotes{0.25}\hskip-\Gm@rmargin\hskip0pt%
-      \vskip-0.25\paperheight%
-      \nointerlineskip
-      \begin{pgfpicture}{0cm}{0cm}{0cm}{0cm}
-        \begin{pgflowlevelscope}{\pgftransformrotate{90}}
-          {\pgftransformshift{\pgfpoint{-2cm}{0.2cm}}%
-          \pgftext[base,left]{\footnotesize\the\year-\ifnum\month<10\relax0\fi\the\month-\ifnum\day<10\relax0\fi\the\day}}
-        \end{pgflowlevelscope}
-      \end{pgfpicture}}
-    \nointerlineskip
-    \vbox to .25\paperheight{\vskip0.5em
-      \hbox{\insertshorttitle[width=8cm]}%
-      \setbox\beamer@tempbox=\hbox{\insertsection}%
-      \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip4pt\raise3pt\hbox{\vrule
-            width0.4pt height7pt\vrule width 9pt
-            height0.4pt}}\hskip1pt\hbox{\begin{minipage}[t]{7.5cm}\def\breakhere{}\insertsection\end{minipage}}\fi%
-      }%
-      \setbox\beamer@tempbox=\hbox{\insertsubsection}%
-      \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip17.4pt\raise3pt\hbox{\vrule
-            width0.4pt height7pt\vrule width 9pt
-            height0.4pt}}\hskip1pt\hbox{\begin{minipage}[t]{7.5cm}\def\breakhere{}\insertsubsection\end{minipage}}\fi%
-      }%
-      \setbox\beamer@tempbox=\hbox{\insertshortframetitle}%
-      \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip30.8pt\raise3pt\hbox{\vrule
-            width0.4pt height7pt\vrule width 9pt
-            height0.4pt}}\hskip1pt\hbox{\insertshortframetitle[width=7cm]}\fi%
-      }%
-      \vfil}%
-  }%
-  \vskip.25em
-  \nointerlineskip
-  \setlength\itemsep{0em}
-  \tiny\insertnote
-}
+%
+%\defbeamertemplate*{note page}{winslab}
+%{%
+%  {%
+%    \scriptsize
+%    \insertvrule{.25\paperheight}{white!90!black}
+%    \vskip-.25\paperheight
+%    \nointerlineskip
+%    \vbox{
+%      \hfill\insertslideintonotes{0.25}\hskip-\Gm@rmargin\hskip0pt%
+%      \vskip-0.25\paperheight%
+%      \nointerlineskip
+%      \begin{pgfpicture}{0cm}{0cm}{0cm}{0cm}
+%        \begin{pgflowlevelscope}{\pgftransformrotate{90}}
+%          {\pgftransformshift{\pgfpoint{-2cm}{0.2cm}}%
+%          \pgftext[base,left]{\footnotesize\the\year-\ifnum\month<10\relax0\fi\the\month-\ifnum\day<10\relax0\fi\the\day}}
+%        \end{pgflowlevelscope}
+%      \end{pgfpicture}}
+%    \nointerlineskip
+%    \vbox to .25\paperheight{\vskip0.5em
+%      \hbox{\insertshorttitle[width=8cm]}%
+%      \setbox\beamer@tempbox=\hbox{\insertsection}%
+%      \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip4pt\raise3pt\hbox{\vrule
+%            width0.4pt height7pt\vrule width 9pt
+%            height0.4pt}}\hskip1pt\hbox{\begin{minipage}[t]{7.5cm}\def\breakhere{}\insertsection\end{minipage}}\fi%
+%      }%
+%      \setbox\beamer@tempbox=\hbox{\insertsubsection}%
+%      \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip17.4pt\raise3pt\hbox{\vrule
+%            width0.4pt height7pt\vrule width 9pt
+%            height0.4pt}}\hskip1pt\hbox{\begin{minipage}[t]{7.5cm}\def\breakhere{}\insertsubsection\end{minipage}}\fi%
+%      }%
+%      \setbox\beamer@tempbox=\hbox{\insertshortframetitle}%
+%      \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip30.8pt\raise3pt\hbox{\vrule
+%            width0.4pt height7pt\vrule width 9pt
+%            height0.4pt}}\hskip1pt\hbox{\insertshortframetitle[width=7cm]}\fi%
+%      }%
+%      \vfil}%
+%  }%
+%  \vskip.25em
+%  \nointerlineskip
+%  \setlength\itemsep{0em}
+%  \tiny\insertnote
+%}
 
-\define@key{beamerframe}{finalcontactslide}[true]{%
-  \beamer@plainframetrue%
-  \def\beamer@frametemplate{\beamer@frametemplate@plain}
-}
+
+%
+%\defbeamertemplate*{note page}{winslab}
+%{%
+% 
+%	\vskip.25em\texttt{\insertshortframetitle}\\\insertnote
+%}
+%
+%\define@key{beamerframe}{finalcontactslide}[true]{%
+%  \beamer@plainframetrue%
+%  \def\beamer@frametemplate{\beamer@frametemplate@plain}
+%}
 
 
 
