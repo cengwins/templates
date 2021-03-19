@@ -6,14 +6,23 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\institute[WINS Lab]{Wireless Systems, Networks and Cybersecurity Laboratory\\Department of Computer Engineering\\Middle East Technical University\\Ankara Turkey} 
-
+\iflanguage{turkish}
+{
+\institute[WINSLab]{Telsiz Sistemler, Ağlar ve Siber Güvenlik Laboratuvarı\\Bilgisayar Mühendisliği Bölümü\\Orta Doğu Teknik Üniversitesi\\Ankara} 
+}{}
+\iflanguage{english}
+{
+\institute[WINSLab]{Wireless Systems, Networks and Cybersecurity Laboratory\\Department of Computer Engineering\\Middle East Technical University\\Ankara Turkey} 
+}{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \mode<presentation>
 \useinnertheme{winslab}
 \useoutertheme{winslab}
 \usecolortheme{winslab}
-\usefonttheme{default}
+
+\usepackage[default]{lato}
+
+
 
 \newcommand{\eonlect}[1]{
 {

@@ -1,6 +1,6 @@
 \mode<presentation>
 
-\titlegraphic{\includegraphics[height=3.8ex]{winslogo-64bit}}
+\titlegraphic{\includegraphics[height=5ex]{winslogo-64bit}}
 
 %
 \defbeamertemplate*{title page}{winslab}[1][]
@@ -9,6 +9,9 @@
   \vfill
   \begingroup
     \centering
+    \begin{beamercolorbox}[sep=12pt,center,#1]{institute}
+       {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    \end{beamercolorbox}
     \begin{beamercolorbox}[sep=8pt,center,#1,shadow=true,rounded=true]{title}
       \usebeamerfont{title}\inserttitle\par%
       \ifx\insertsubtitle\@empty%
@@ -21,7 +24,7 @@
     \begin{beamercolorbox}[sep=8pt,center,#1]{author}
       \usebeamerfont{author}\insertauthor
     \end{beamercolorbox}
-     {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    
     \begin{beamercolorbox}[sep=8pt,center,#1]{institute}
       \usebeamerfont{institute}\insertinstitute
     \end{beamercolorbox}
@@ -34,20 +37,30 @@
 }
 
 
-% Part page: default
-
 \defbeamertemplate*{part page}{winslab}[1][]
 {
   \begingroup
     \centering
-    {\usebeamerfont{part name}\usebeamercolor[fg]{part name}\partname~\insertromanpartnumber}
+    {\usebeamerfont{part name}\usebeamercolor[bg]{part name}\partname~\insertromanpartnumber}
     \vskip1em\par
     \begin{beamercolorbox}[sep=16pt,center,#1]{part title}
-      \usebeamerfont{part title}\insertpart \insertsection \par
+      \usebeamerfont{part title}\insertpart\par
     \end{beamercolorbox}
   \endgroup
 }
-
+%
+%\defbeamertemplate*{part page}{winslab}[1][]
+%{
+%  \begingroup
+%    \centering
+%    \vskip1em\par
+%    \thispagestyle{empty}
+%    \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{partpage title}
+%      \usebeamerfont{part title}\usebeamercolor[bg]{part title}\partname~\insertromanpartnumber
+%    \end{beamercolorbox}
+%  \endgroup
+%}
+%
 
 % Section page: default
 
