@@ -70,14 +70,25 @@
 \vskip0.5cm
     \centering
     \usebeamercolor{title in headline}{\color{fg}\large{\textbf{Lecture~\thepart:~\beamer@partname}}\\[0.5ex]}
-    
+    \note{Lecture~\thepart:~\beamer@partname}
 \end{frame}
 }
 
 
+\iflanguage{turkish}
+{
 \patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0em}{}{}
 \AtBeginSection[]{%
-  \begin{frame}\frametitle{Agenda}\begin{minipage}{\textwidth}\tableofcontents[currentsection,hideallsubsections]\end{minipage}\end{frame}}
+  \begin{frame}\frametitle{Kapsam}\begin{minipage}{\textwidth}\tableofcontents[currentsection,hideallsubsections]\end{minipage}\note{\tableofcontents[currentsection,hideallsubsections]}\end{frame}}
+}{}
+
+
+\iflanguage{english}
+{
+\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0em}{}{}
+\AtBeginSection[]{%
+  \begin{frame}\frametitle{Agenda}\begin{minipage}{\textwidth}\tableofcontents[currentsection,hideallsubsections]\end{minipage}\note{\tableofcontents[currentsection,hideallsubsections]}\end{frame}}
+}{}
 
 
 \newcommand{\thankslide}[1]{
