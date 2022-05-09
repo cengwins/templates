@@ -7,6 +7,16 @@
 \ProcessOptions \relax
 \LoadClass{exam}
 
+\RequirePackage{lastpage}
+
+\usepackage[skins]{tcolorbox}
+\tcbset{commonstyle/.style={boxrule=0pt,sharp corners,enhanced jigsaw,nobeforeafter,boxsep=1pt,left=\fboxsep,right=\fboxsep}}
+
+\newtcolorbox{mycolorbox}[1][]{commonstyle,#1}
+
+\bracketedpoints
+
+
 \def\Lrule#1#2{\vtop{\vskip#1\hsize=#2 \hrulefill}}
 
 % what is the email
@@ -66,6 +76,12 @@
 \newcommand{\show@lecturer}{\@lecturer}
 
 
+% what is the examintrotext
+\def\@examintrotext{}
+\newcommand{\setexamintrotext}[1]{\def\@examintrotext{#1}}
+\newcommand{\show@examintrotext}{\@examintrotext}
+
+
 \RequirePackage{libertine}
 \RequirePackage{libertinust1math}
 \RequirePackage[utf8]{inputenc}
@@ -80,15 +96,15 @@
 \definecolor{myviolet}{HTML}{4c0068}
 
 \RequirePackage{tikz}\usetikzlibrary{calc}
-\RequirePackage[ a4paper, total={210mm,297mm},left=2.5cm,right=2cm,top=1cm,bottom=7cm]{geometry}
+\RequirePackage[ a4paper,left=2.5cm,right=2cm,top=1cm,bottom=7cm]{geometry}
 
-\RequirePackage{lastpage}
  
 
   %\fancyhf{} % clear all six fields
-%  \renewcommand{\headrulewidth}{0pt}
+%  \renewcommand{\headrulewidth}{2pt}
 %  \renewcommand{\footrulewidth}{0pt}
   \setlength\headheight{5cm}
+%  \setlength\footheight{5cm}
 
 \rhead{%
 \scriptsize
@@ -97,10 +113,10 @@
  \end{tikzpicture}
 }
 
-\rfoot{
-\scriptsize \thepage/\pageref{LastPage}
+\cfoot{
+ Page \thepage/\pageref{LastPage}
 }
-\cfoot{}
+%\cfoot{}
 
 
 \lhead{%
@@ -120,3 +136,25 @@
 }
 
 
+\AtBeginDocument{
+
+
+\begin{center}
+\begin{mycolorbox}[colback=gray!30]
+	\examintrotext
+
+\centering\gradetable[h][questions]
+\end{mycolorbox}
+\begin{mycolorbox}[colback=gray!30]
+	\centering EXAM BEGINS HERE
+\end{mycolorbox}
+\end{center}
+}
+
+\usepackage{etoolbox}
+\AtEndEnvironment{document}{
+\cfoot{\begin{mycolorbox}[colback=gray!30]
+	\centering EXAM ENDS HERE, Page  \thepage/\pageref{LastPage}
+\end{mycolorbox}}
+\rfoot{}
+}
