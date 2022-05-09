@@ -1,28 +1,13 @@
 % metu.sty
-\ProvidesClass{metu}[2016/09/01 version 1.0]
+\ProvidesClass{metuexam}[2016/09/01 version 1.0]
 \NeedsTeXFormat{LaTeX2e}
-
-% --- Class structure: declaration of options part
-% ---
-% This class extends the article class
-% Read all the documentclass options; pass them to article, unless the file
-% named "<currentoption>.min" exists, in which case it is loaded
-%\DeclareOption*{\InputIfFileExists{\CurrentOption.min}{}{%
-%    \PassOptionsToClass{\CurrentOption}{article}}
-%\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \DeclareOption*{\InputIfFileExists{\CurrentOption.min}{}{%
-    \PassOptionsToClass{\CurrentOption}{article}}}
+    \PassOptionsToClass{\CurrentOption}{exam}}}
 
-% --- Class structure: execution of options part
-% ---
 \ProcessOptions \relax
+\LoadClass{exam}
 
-% --- Class structure: declaration of options part
-% ---
-%\LoadClass{article}
-
-% --- Class structure: main code part
-% ---
+\def\Lrule#1#2{\vtop{\vskip#1\hsize=#2 \hrulefill}}
 
 % what is the email
 \def\@email{}
@@ -44,11 +29,10 @@
 \newcommand*{\printtel}{\expandafter{\@tel}}
 
 % what is the fax
-\def\@web{}
+\def\@fax{}
 \newcommand{\setfax}[1]{\def\@fax{#1}}
 \newcommand{\show@fax}{\@fax}
 \newcommand*{\printfax}{\expandafter{\@fax}}
-
 
 
 % what is the course
@@ -77,20 +61,10 @@
 \newcommand{\show@examinationtype}{\@examinationtype}
 
 % what is the lecturer
-\def\@examinationtype{}
+\def\@lecturer{}
 \newcommand{\setlecturer}[1]{\def\@lecturer{#1}}
 \newcommand{\show@lecturer}{\@lecturer}
 
-\newenvironment{announcements}{%
-\begin{businesslist}{Announcements}
-}{%
-\end{businesslist}
-}
-
-%\RequirePackage[]{fontspec}
-%\setromanfont{Times New Roman}
-%\setsansfont{Arial}
-%\setmonofont[Color={0019D4}]{Courier New}
 
 \RequirePackage{libertine}
 \RequirePackage{libertinust1math}
@@ -106,30 +80,20 @@
 \definecolor{myviolet}{HTML}{4c0068}
 
 \RequirePackage{tikz}\usetikzlibrary{calc}
-\RequirePackage[ a4paper, total={210mm,297mm},left=3cm,right=2cm,top=1cm,bottom=7cm]{geometry}
+\RequirePackage[ a4paper, total={210mm,297mm},left=2.5cm,right=2cm,top=1cm,bottom=7cm]{geometry}
 
 \RequirePackage{lastpage}
  
 
-\@ifpackageloaded{fancyhdr}{  }{\RequirePackage{fancyhdr}}
-
-\fancypagestyle{metuheaderstyle}{%
   %\fancyhf{} % clear all six fields
-  \renewcommand{\headrulewidth}{0pt}
-  \renewcommand{\footrulewidth}{0pt}
+%  \renewcommand{\headrulewidth}{0pt}
+%  \renewcommand{\footrulewidth}{0pt}
   \setlength\headheight{5cm}
 
 \rhead{%
 \scriptsize
   \begin{tikzpicture}[remember picture,overlay,every node/.style={anchor=west}]
   \node at (-9,3) { \includegraphics[width=0.5\paperwidth]{refmetu.png}};
-  \node at (-16.1,.5) { };
-  \node at (-7.4,2-0.3) {\textcolor{metublack}{\MakeUppercase{\show@coursecode} \vspace{1cm} \MakeUppercase{\show@courseterm}}};
-  \node at (-7.4,1.7-0.3) {\textcolor{metublack}{\MakeUppercase{\show@coursename}}};
-  \node at (-7.4,1.4-0.3) {\textcolor{metured}{\MakeUppercase{\show@examinationtype}}};
-  \node at (-7.4,1.1-0.3) {\textcolor{metured}{\MakeUppercase{\show@examdate}}};
-  \node at (-7.4,0.8-0.3) {};
-  \node at (-7.4,0.5-0.3) {\textcolor{metublack}{\MakeUppercase{\show@lecturer}}};
  \end{tikzpicture}
 }
 
@@ -138,24 +102,21 @@
 }
 \cfoot{}
 
-\lhead{
-\scriptsize
-\textcolor{metublack}{MÜHENDİSLİK FAKÜLTESİ}\\
-\textcolor{metublack}{FACULTY OF ENGINEERING}\\
+
+\lhead{%
+\footnotesize
+\vspace{1cm}
+\textcolor{metugray}{MÜHENDİSLİK FAKÜLTESİ}\\
+\textcolor{metugray}{FACULTY OF ENGINEERING}\\
 \textcolor{metured}{BİLGİSAYAR MÜHENDİSLİĞİ BÖLÜMÜ}\\
 \textcolor{metured}{DEPARTMENT OF COMPUTER ENGINEERING}\\
-\vspace{0.2cm}
-\textcolor{metugray}{DUMLUPINAR BULVARI 06800}\\
-\textcolor{metugray}{ÇANKAYA ANKARA/TURKEY}\\
-\textcolor{metugray}{T: \show@tel}\\
-\textcolor{metugray}{F: \show@fax}\\
-\textcolor{metugray}{\show@email}\\
-\textcolor{metugray}{\show@web}\\
-\includegraphics[width=0.05\paperwidth]{winslogo.png}\textcolor{metugray}{http://wins.ceng.metu.edu.tr}
-}  
+\textcolor{metublack}{\MakeUppercase{\coursecode} \MakeUppercase{\coursename}  \hfill \MakeUppercase{\courseterm}}\\
+\textcolor{metublack}{\MakeUppercase{\examinationtype}  \hfill  \MakeUppercase{\examdate}}\\
+\textcolor{metublack}{\hfill  }\\
+\textcolor{metublack}{\hfill  }\\
+%\namedata
+\textbf{NAME}: \textcolor{metugray}{\Lrule{.05cm}{2.1in}} \textbf{NUMBER}:   \textcolor{metugray}{\Lrule{.05cm}{1.5in}}
+\textbf{SIGNATURE}:   \textcolor{metugray}{\Lrule{.05cm}{1in}}
 }
 
 
-%
-\pagestyle{metuheaderstyle}
-\AtBeginDocument{\thispagestyle{metuheaderstyle}}
